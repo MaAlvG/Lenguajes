@@ -1,3 +1,5 @@
+package com.lenguajes.javaFIles;
+
 public class genericLst<T> {
     private T t;
 

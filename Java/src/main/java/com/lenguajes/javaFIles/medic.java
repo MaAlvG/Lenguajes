@@ -1,3 +1,5 @@
+package com.lenguajes.javaFIles;
+
 public class medic extends person {
     private int IDMed;
     private static int genIDMed;
