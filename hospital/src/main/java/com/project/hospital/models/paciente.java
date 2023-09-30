@@ -1,10 +1,5 @@
 package com.project.hospital.models;
 
-import javax.persistence.Entity;
-import javax.persistence.Table;
-
-@Entity
-@Table(name = "pacientes")
 public class paciente extends person {
     private int medicoCabecera;
 
