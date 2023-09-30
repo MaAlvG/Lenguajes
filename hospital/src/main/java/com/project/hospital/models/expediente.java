@@ -1,12 +1,20 @@
 package com.project.hospital.models;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Table;
 import java.time.LocalDate;
 import java.util.ArrayList;
-
+@Entity
+@Table(name = "expediente")
 public class expediente {
+    @Column(name = "id")
     private int id;
+    @Column(name = "fecha")
     private LocalDate fecha;
+    @Column(name = "padecimiento")
     private String padecimiento;
+    @Column(name = "procedimiento")
     private String procedimiento;
     private ArrayList<String> medicamentos;
 

@@ -1,9 +1,23 @@
 package com.project.hospital.models;
 
+import lombok.Getter;
+import lombok.Setter;
+
+import javax.persistence.*;
+
+@Entity
+@Table(name = "persona")
+@Inheritance(strategy = InheritanceType.JOINED)
 public abstract class person {
+    @Column(name = "id")
+    private int id;
+    @Getter @Setter @Column(name = "nombre")
     private String nombre;
+    @Column(name = "apellido")
     private String apellido;
+    @Column(name = "cedula")
     private int cedula;
+    @Column(name = "correo")
     private String eMail;
 
     public String getNombre() {

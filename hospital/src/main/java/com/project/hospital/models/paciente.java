@@ -1,6 +1,14 @@
 package com.project.hospital.models;
 
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Table;
+
+@Entity
+@Table(name = "paciente")
 public class paciente extends person {
+    @Column(name = "medico_cabecera")
     private int medicoCabecera;
 
     public int getMedicoCabecera() {

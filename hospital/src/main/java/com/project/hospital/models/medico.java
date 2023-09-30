@@ -1,8 +1,16 @@
 package com.project.hospital.models;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Table;
+
+@Entity
+@Table(name = "medico")
 public class medico extends person {
+    @Column(name = "idmed")
     private int IDMed;
     private static int genIDMed;
+    @Column(name = "especialidad")
     private String especialidad;
 
     public int getIDMed() {

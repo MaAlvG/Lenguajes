@@ -1,13 +1,23 @@
 package com.project.hospital.models;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Table;
 import java.time.LocalDate;
 import java.time.LocalTime;
-
+@Entity
+@Table(name = "cita")
 public class cita {
     // private static final int duration = 30;
+    @Column(name = "id")
+    private int cita_id;
+    @Column(name = "medico_id")
     private int medico_id;
+    @Column(name = "paciente_id")
     private int paciente_id;
+    @Column(name = "fecha")
     private LocalDate fecha;
+    @Column(name = "hora")
     private LocalTime hora;
 
     public int getMedico_id() {
