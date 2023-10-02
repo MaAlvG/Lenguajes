@@ -2,13 +2,17 @@ package com.project.hospital.models;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Table;
 import java.time.LocalDate;
 import java.time.LocalTime;
+
 @Entity
 @Table(name = "cita")
 public class cita {
     // private static final int duration = 30;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
     private int cita_id;
     @Column(name = "medico_id")

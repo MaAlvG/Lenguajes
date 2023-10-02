@@ -4,7 +4,7 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Table;
 import java.time.LocalDate;
-import java.util.ArrayList;
+
 @Entity
 @Table(name = "expediente")
 public class expediente {
@@ -16,7 +16,8 @@ public class expediente {
     private String padecimiento;
     @Column(name = "procedimiento")
     private String procedimiento;
-    private ArrayList<String> medicamentos;
+    @Column(name = "medicamentos")
+    private String medicamentos;
 
     public int getId() {
         return id;
@@ -34,11 +35,11 @@ public class expediente {
         return procedimiento;
     }
 
-    public ArrayList<String> getMedicamentos() {
+    public String getMedicamentos() {
         return medicamentos;
     }
 
-    public expediente(int id, LocalDate date, String sick, String procd, ArrayList<String> mdn) {
+    public expediente(int id, LocalDate date, String sick, String procd, String mdn) {
         this.id = id;
         this.fecha = date;
         this.padecimiento = sick;
@@ -56,12 +57,13 @@ public class expediente {
         expediente = expediente.concat("\nProcedimiento: ");
         expediente = expediente.concat(procedimiento);
         expediente = expediente.concat("\nLista de medicamentos: ");
+        expediente = expediente.concat(medicamentos);
 
-        for (int i = 0; i < medicamentos.size(); i++) {
-            expediente = expediente.concat(medicamentos.get(i));
-            expediente = expediente.concat(", ");
+        // for (int i = 0; i < medicamentos.size(); i++) {
+        // expediente = expediente.concat(medicamentos.get(i));
+        // expediente = expediente.concat(", ");
 
-        }
+        // }
         return expediente;
     }
 }
