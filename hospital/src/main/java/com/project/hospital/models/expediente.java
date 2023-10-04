@@ -59,11 +59,6 @@ public class expediente {
         expediente = expediente.concat("\nLista de medicamentos: ");
         expediente = expediente.concat(medicamentos);
 
-        // for (int i = 0; i < medicamentos.size(); i++) {
-        // expediente = expediente.concat(medicamentos.get(i));
-        // expediente = expediente.concat(", ");
-
-        // }
         return expediente;
     }
 }

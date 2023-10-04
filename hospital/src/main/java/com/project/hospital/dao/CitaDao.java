@@ -6,6 +6,3 @@ public interface CitaDao {
 
     void generarCita(cita nuevaCita);
 }
-
-
-    
