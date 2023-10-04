@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.time.LocalDate;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -19,6 +20,10 @@ import com.project.hospital.models.paciente;
 @RestController
 public class userControllers {
 
+    @Autowired
+    private CitaDao citaDao;
+
+
     @RequestMapping(value = "api/paciente/{id}")
     public paciente getPaciente(@PathVariable int id) {
         paciente test1 = new paciente("aa", "BB", id, "333r", 0);
@@ -28,7 +33,7 @@ public class userControllers {
 
     @RequestMapping(value = "api/cita{id}", method = RequestMethod.POST)
     public void genCita(@RequestBody cita nuevaCita) {
-        // CitaDao.generarCita(nuevaCita);
+        citaDao.generarCita(nuevaCita);
 
     }
 
