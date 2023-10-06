@@ -41,7 +41,7 @@ async function cargarPacientes(){
 }
 
 async function mostrarExpediente(id){
-  alert(id);
+  alert(id); 
 
   const request = await fetch('api/expediente/'+id, {
     method: 'GET',
@@ -65,7 +65,7 @@ async function mostrarExpediente(id){
   document.querySelector('#pacientes thead').outerHTML = '<tr><th>Fecha</th>'
                                                             +'<th>Padecimiento</th>'
                                                             +'<th>Procedimiento</th>'
-                                                            +'<th>medicamentos</th>'
-                                                            +'<th>Ver else?</th></tr>';
+                                                            +'<th>Medicamentos</th>'
+                                                            +'<th>Hacer consulta</th></tr>';
   document.querySelector('#pacientes tbody').outerHTML = listadoHTML;   
 }

@@ -1,34 +1,35 @@
 // Call the dataTables jQuery plugin
 $(document).ready(function() {
-  cargarExpediente();
-  $('#expediente').DataTable();
+  cargarExpedientes();
+  $('#expedientes').DataTable();
 });
 
-async function cargarExpediente(){
+async function cargarExpedientes(){
   
-    const request = await fetch('api/expediente', {
+    const request = await fetch('api/expedientes', {
       method: 'GET',
       headers: {
         'Accept': 'application/json',
         'Content-Type': 'application/json'
       }
     });
-    const expediente = await request.json();
+    const expedientes = await request.json();
     
-    console.log(expediente);
+    console.log(expedientes);
 
     let listadoHTML = '';
-    for(let exp of expediente){
-      let expHTML = '<tr><td>'+exp.fecha
-      +'</td><td>'+exp.padecimiento
-      +'</td><td>'+exp.procedimiento
-      +'</td><td>'+exp.medicamentos
+    for(let expediente of expedientes){
+      let expedienteHTML = '<tr><td>'+expediente.nombre
+      +'</td><td>'+expediente.apellido
+      +'</td><td>'+expediente.cedula
+      +'</td><td>'+expediente.mail
+      +'</td><td>'+expediente.especialidad
       +'</td><td><a href="#" class="btn btn-success btn-circle btn-sm"><i class="fas fa-check"></i></a></td></tr>';
 
-      listadoHTML += expHTML;
+      listadoHTML += expedienteHTML;
     }
     
 
-    document.querySelector('#expediente tbody').outerHTML = listadoHTML;
+        document.querySelector('#expedientes tbody').outerHTML = listadoHTML;
 
 }

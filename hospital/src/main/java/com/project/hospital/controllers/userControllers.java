@@ -12,6 +12,9 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.project.hospital.dao.CitaDao;
+import com.project.hospital.dao.ExpedienteDao;
+import com.project.hospital.dao.MedicoDao;
+import com.project.hospital.dao.PacienteDao;
 import com.project.hospital.models.cita;
 import com.project.hospital.models.expediente;
 import com.project.hospital.models.medico;
@@ -23,6 +26,13 @@ public class userControllers {
     @Autowired
     private CitaDao citaDao;
 
+    @Autowired
+    private MedicoDao medicoDao;
+
+    @Autowired
+    private PacienteDao pacienteDao;
+    @Autowired
+    private ExpedienteDao expedienteDao;
 
     @RequestMapping(value = "api/paciente/{id}")
     public paciente getPaciente(@PathVariable int id) {
@@ -31,47 +41,51 @@ public class userControllers {
         return test1;
     }
 
-    @RequestMapping(value = "api/cita{id}", method = RequestMethod.POST)
+    @RequestMapping(value = "api/cita", method = RequestMethod.POST)
     public void genCita(@RequestBody cita nuevaCita) {
         citaDao.generarCita(nuevaCita);
 
     }
 
+    @RequestMapping(value = "api/addMedico", method = RequestMethod.POST)
+    public void nuevoMed(@RequestBody medico nuevoMedico) {
+        medicoDao.nuevoMed(nuevoMedico);
+
+    }
+
+    @RequestMapping(value = "api/addPaciente", method = RequestMethod.POST)
+    public void nuevoPct(@RequestBody paciente nuevoPct) {
+        pacienteDao.nuevoPct(nuevoPct);
+
+    }
+
+    @RequestMapping(value = "api/addExp", method = RequestMethod.POST)
+    public void nuevoExp(@RequestBody expediente nuevoExp) {
+        expedienteDao.nuevoExp(nuevoExp);
+
+    }
+
     @RequestMapping(value = "api/pacientes")
     public List<paciente> getPacientes() {
-        List<paciente> pacientes = new ArrayList<>();
-        paciente test1 = new paciente("aa", "BB", 1, "111r", 01);
-        paciente test2 = new paciente("bb", "CC", 2, "222r", 02);
-        paciente test3 = new paciente("cc", "DD", 3, "333r", 03);
-        pacientes.add(test1);
-        pacientes.add(test2);
-        pacientes.add(test3);
-        return pacientes;
+
+        return pacienteDao.getPacientes();
     }
 
     @RequestMapping(value = "api/medicos")
     public List<medico> getMedicos() {
-        List<medico> medicos = new ArrayList<>();
-        medico test1 = new medico("aa", "BB", 1, "111r", "general");
-        medico test2 = new medico("bb", "CC", 2, "222r", "oncologia");
-        medico test3 = new medico("cc", "DD", 3, "333r", "reumatologia");
-        medicos.add(test1);
-        medicos.add(test2);
-        medicos.add(test3);
-        return medicos;
+        return medicoDao.getMedicos();
     }
 
-    @RequestMapping(value = "api/expediente{id}")
-    public List<expediente> getExpedientes(@PathVariable int id) {
-        List<expediente> exps = new ArrayList<>();
-        LocalDate hoy = LocalDate.now();
-        expediente test1 = new expediente(1, hoy, "yes", "111r", "med1 med 2 med3");
-        expediente test2 = new expediente(2, hoy, "no ", "222r", "med1 med 2 med3");
-        expediente test3 = new expediente(3, hoy, "mby", "333r", "med1 med 2 med3");
-        exps.add(test1);
-        exps.add(test2);
-        exps.add(test3);
-        return exps;
+    @RequestMapping(value = "api/expediente/{id}")
+    public List<expediente> getExpediente(@PathVariable int id) {
+
+        return expedienteDao.getExpEspecifico(id);
+    }
+
+    @RequestMapping(value = "api/expediente")
+    public List<expediente> getExpedientes() {
+
+        return expedienteDao.getExpedientes();
     }
 
 }

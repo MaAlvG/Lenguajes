@@ -9,7 +9,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Generar cita</title>
+    <title>Medico nuevo</title>
 
     <!-- Custom fonts for this template-->
     <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
@@ -24,67 +24,54 @@
 
 <body class="bg-gradient-primary">
 
+
+
     <div class="container">
 
         <div class="card o-hidden border-0 shadow-lg my-5">
             <div class="card-body p-0">
                 <!-- Nested Row within Card Body -->
                 <div class="row">
-                    <div class="col-lg-5 d-none d-lg-block bg-cita-image"></div>
+                    <div class="col-lg-5 d-none d-lg-block bg-medico-image"></div>
                     <div class="col-lg-7">
                         <div class="p-5">
                             <div class="text-center">
-                                <h1 class="h4 text-gray-900 mb-4">Generar cita</h1>
+                                <h1 class="h4 text-gray-900 mb-4">Datos del medico</h1>
                             </div>
                             <form class="user">
 
                                 <div class="form-group row">
                                     <div class="col-sm-6 mb-3 mb-sm-0">
-                                        <input type="text" class="form-control form-control-user" id="nPaciente"
-                                            placeholder="Nombre del paciente">
+                                        <input type="text" class="form-control form-control-user" id="nMed"
+                                            placeholder="Nombre">
                                     </div>
                                     <div class="col-sm-6">
-                                        <input type="text" class="form-control form-control-user" id="aPaciente"
-                                            placeholder="Apellidos del paciente">
+                                        <input type="text" class="form-control form-control-user" id="aMed"
+                                            placeholder="Apellidos">
                                     </div>
                                     <div class="col-sm-6">
-                                        <input type="number" class="form-control form-control-user" id="ced_paciente"
-                                            placeholder="cedula del paciente">
+                                        <input type="number" class="form-control form-control-user" id="cedula"
+                                            placeholder="Cedula">
+                                    </div>
+
+                                    <div class="col-sm-6 mb-3 mb-sm-0">
+                                        <input type="text" class="form-control form-control-user" id="especialidad"
+                                            placeholder="Especialidad">
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <input type="text" class="form-control form-control-user" id="correo"
+                                            placeholder="Correo electronico">
                                     </div>
                                 </div>
 
-                                <div class="form-group row">
-                                    <div class="col-sm-6 mb-3 mb-sm-0">
-                                        <input type="text" class="form-control form-control-user" id="nMedico"
-                                            placeholder="Nombre del doctor">
-                                    </div>
-                                    <div class="col-sm-6">
-                                        <input type="text" class="form-control form-control-user" id="aMedico"
-                                            placeholder="Apellidos del medico">
-                                    </div>
-                                    <div class="col-sm-6">
-                                        <input type="number" class="form-control form-control-user" id="ced_medico"
-                                            placeholder="Cedula del medico">
-                                    </div>
-                                </div>
-
-                                <div class="form-group row">
-                                    <div class="col-sm-6 mb-3 mb-sm-0">
-                                        <input type="date" class="form-control form-control-user"
-                                            id="fecha" placeholder="Fecha">
-                                    </div>
-                                    <div class="col-sm-6">
-                                        <input type="time" class="form-control form-control-user"
-                                            id="hora" placeholder="Hora">
-                                    </div>
-                                </div>
-                                <a onclick="guardarCita()" href="index.html"class="btn btn-primary btn-user btn-block">
-                                    Registrar cita
+                                <a onclick="nuevoMed()" href="index.html"class="btn btn-primary btn-user btn-block">
+                                    Registrar Medico
                                 </a>
 
                                 <a href="index.html"class="btn btn-primary btn-user btn-block">
                                     Menu Principal
                                 </a>
+
                                 <hr>
                             </form>
                         </div>
@@ -105,7 +92,7 @@
     <!-- Custom scripts for all pages-->
     <script src="js/sb-admin-2.min.js"></script>
     
-    <script src="js/genCita.js"></script>
+    <script src="js/addMedico.js"></script>
 </body>
 
 </html>
