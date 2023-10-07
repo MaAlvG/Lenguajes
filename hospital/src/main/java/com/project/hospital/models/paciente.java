@@ -37,6 +37,10 @@ public class paciente extends person {
         this.medicoCabecera = medicId;
     }
 
+    public paciente() {
+        super();
+    }
+
     public String printInfo() {
         String info = super.printInfo();
         info = info.concat(" Medico a cargo: ");

@@ -48,6 +48,10 @@ public class medico extends person {
         this.IDMed = genIDMed;
     }
 
+    public medico() {
+        super();
+    }
+
     public String getInfo() {
         String info = super.printInfo();
         info = info.concat(" Cedula Medica: ");

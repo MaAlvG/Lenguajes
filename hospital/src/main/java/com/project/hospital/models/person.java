@@ -9,7 +9,8 @@ import javax.persistence.*;
 @Table(name = "persona")
 @Inheritance(strategy = InheritanceType.JOINED)
 public abstract class person {
-    @Column(name = "id")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Id
     private int id;
     @Column(name = "nombre")
     private String nombre;
@@ -42,6 +43,8 @@ public abstract class person {
         this.cedula = ced;
         this.eMail = email;
     }
+
+    public person(){}
 
     public String printInfo() {
         String info = "Nombre: ";

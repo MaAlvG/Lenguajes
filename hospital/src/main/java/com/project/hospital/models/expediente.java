@@ -1,15 +1,17 @@
 package com.project.hospital.models;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Table;
+import javax.persistence.*;
 import java.time.LocalDate;
 
 @Entity
 @Table(name = "expediente")
 public class expediente {
-    @Column(name = "id")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Id
     private int id;
+
+    @Column(name = "paciente_id")
+    private int paciente_id;
     @Column(name = "fecha")
     private LocalDate fecha;
     @Column(name = "padecimiento")
@@ -20,7 +22,7 @@ public class expediente {
     private String medicamentos;
 
     public int getId() {
-        return id;
+        return paciente_id;
     }
 
     public LocalDate getFecha() {
@@ -40,16 +42,18 @@ public class expediente {
     }
 
     public expediente(int id, LocalDate date, String sick, String procd, String mdn) {
-        this.id = id;
+        this.paciente_id = id;
         this.fecha = date;
         this.padecimiento = sick;
         this.procedimiento = procd;
         this.medicamentos = mdn;
     }
 
+    public expediente(){}
+
     public String printExpediente() {
         String expediente = "Id del paciente: ";
-        expediente = expediente.concat(Integer.toString(id));
+        expediente = expediente.concat(Integer.toString(paciente_id));
         expediente = expediente.concat("\nFecha: ");
         expediente = expediente.concat(String.valueOf(fecha));
         expediente = expediente.concat("\nPadecimiento: ");
