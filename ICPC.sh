@@ -50,7 +50,7 @@ echo "Instalando OpenJDK 18..."
 curl -s "https://get.sdkman.io" | bash
 source "$HOME/.sdkman/bin/sdkman-init.sh"
 sdk install java 18-open
-
+sdk install java 21-open
 
 
 # Verificar instalación de programas
